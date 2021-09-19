@@ -1,4 +1,8 @@
-a = list(i for i in input().split())
-b = {a[i]: a.count(a[i]) for i in range(len(a))}
-for x, y in sorted(b.items(), key=lambda x: [-x[1], x[0]]):
-    print(y, x)
+def Mnogobonachi(n):
+    if 1 <= n <= 8:
+        return 0
+    elif n == 9:
+        return 1
+    elif n > 9:
+        return Mnogobonachi(n - 1) + Mnogobonachi(n - 2) + Mnogobonachi(n - 3) + Mnogobonachi(n - 4) + Mnogobonachi(n - 5) + Mnogobonachi(n - 6) + Mnogobonachi(n - 7) + Mnogobonachi(n - 8) + Mnogobonachi(n - 9)
+print(Mnogobonachi(int(input())))
