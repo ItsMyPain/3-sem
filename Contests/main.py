@@ -1,18 +1,17 @@
-class Car:
-    def __init__(self, cap, sp, nm):
-        self.capacity = cap
-        self.speed = sp
-        self.number = nm
+class MoneyBox:
+    storage = {}
 
+    def add_coin(self, value):
+        if self.storage.get(value):
+            self.storage[value] += 1
+        else:
+            self.storage.setdefault(value, 1)
 
-class RaceCar(Car):
-    def __init__(self, sp):
-        super().__init__(0, sp, None)
+    # Получить текущее количество монеток в копилке
+    def get_coins_number(self):
+        return sum(v for k, v in self.storage.items())
 
-
-
-c = Car(1000, 100, "a720po")
-print(c.capacity, c.speed, c.number)
-r = RaceCar(300)
-print(r.capacity, r.speed, r.number)
+    # Получить текущее общее достоинство всех монеток
+    def get_coins_value(self):
+        return sum(k * v for k, v in self.storage.items())
 
