@@ -1,3 +1,7 @@
-input1 = input().split('0')
-out = sorted(input1, key=len, reverse=True)
-print(out)
+input1 = input()
+fin = input()
+try:
+    f = open(input1, 'r')
+    print(f.read().lower().split().count(fin.lower()))
+except FileNotFoundError:
+    print(0)
