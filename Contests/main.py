@@ -5,3 +5,5 @@ try:
     print(f.read().lower().split().count(fin.lower()))
 except FileNotFoundError:
     print(0)
+
+##
