@@ -1,16 +1,17 @@
-# This is a sample Python script.
+import matplotlib.pyplot as plt
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+for num in range(1, 6):
+    fname = "00%d.dat" % num
+    f = open(fname)
+    n = int(f.readline())
+    x = []
+    y = []
+    for i in range(n):
+        r = f.readline().split()
+        x.append(float(r[0]))
+        y.append(float(r[1]))
 
+    plt.plot(x, y, ".C%d" % num, label="00%d.dat" % num)
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+plt.legend()
+plt.show()
