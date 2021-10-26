@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 
 for num in range(1, 6):
-    fname = "00%d.dat" % num
+    fname = "Data/00%d.dat" % num
     f = open(fname)
     n = int(f.readline())
     x = []
@@ -14,6 +14,6 @@ for num in range(1, 6):
     plt.plot(x, y, ".C%d" % num, label="00%d.dat" % num)
 
     plt.legend()
-    plt.savefig("00%d.png" % num)
+    plt.savefig("../00%d.png" % num)
     plt.show()
 
