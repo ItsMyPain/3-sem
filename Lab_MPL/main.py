@@ -13,5 +13,7 @@ for num in range(1, 6):
 
     plt.plot(x, y, ".C%d" % num, label="00%d.dat" % num)
 
-plt.legend()
-plt.show()
+    plt.legend()
+    plt.savefig("00%d.png" % num)
+    plt.show()
+
