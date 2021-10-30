@@ -17,3 +17,5 @@ for num in range(1, 6):
     plt.savefig("../00%d.png" % num)
     plt.show()
 
+# Ща брат уйдет с батей я включусь
+# Ахаха,ок
