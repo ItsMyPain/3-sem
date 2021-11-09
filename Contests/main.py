@@ -1,27 +1,11 @@
-person = {}
-sers = {}
-per = set()
-s = []
-for i in range(int(input())):
-    inp = input().split()
-    person[inp[0]] = inp[1]
+import numpy as np
 
-for i in range(int(input())):
-    inp = input().split()
-    sers[inp[0]] = [inp[2], inp[3], inp[4]]
+N, M = map(int, input().split())
+K = int(input())
+st = np.ones(shape=(N, M))
 
-n = input()
+for i in range(K):
+    x, y, r = map(int, input().split())
+    st[max(0, x - r):min(x + r + 1, N), max(0, y - r):min(y + r + 1, M)] = 0
 
-for k, v in sers.items():
-    if n in v:
-        for i in v:
-            per.add(i)
-
-per.remove(n)
-
-for i in per:
-    s.append(person[i])
-
-s.sort()
-for i in s:
-    print(i)
+print(int(st.sum()))
