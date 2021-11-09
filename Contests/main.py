@@ -1,11 +1,7 @@
 import numpy as np
 
-N, M = map(int, input().split())
+a = np.loadtxt(input())
+b = np.loadtxt(input())
+x = np.fromstring(input(), sep=' ')
 
-st = np.zeros(shape=(N, M), dtype=np.int32)
-for i in range(N):
-    st[i:] = np.fromstring(input(), sep=' ')
-
-print(st[st < -5].size)
-print(- st[st < 0].sum())
-print(st.max())
+print(a @ a @ x @ b)
