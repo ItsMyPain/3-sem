@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 data = pd.read_html('results_ejudge.html')
 data1 = pd.read_excel('students_info.xlsx')
 AllData = data[0].merge(data1, left_on='User', right_on='login')
-A = AllData.groupby('group_faculty')[['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']].mean()
-B = AllData.groupby('group_out')[['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']].mean()
+A = AllData.groupby('group_faculty')[['Solved']].mean()
+B = AllData.groupby('group_out')[['Solved']].mean()
 
 A.plot(kind='bar')
 plt.xticks(rotation=0)
