@@ -13,6 +13,7 @@ for num in range(1, 6):
         y.append(float(r[1]))
 
     f.close()
+    plt.gca().set_aspect('equal', adjustable='box')
     plt.plot(x, y, ".C%d" % num, label="00%d.dat" % num)
     plt.grid()
     plt.legend()
@@ -20,10 +21,10 @@ for num in range(1, 6):
     plt.show()
 
 # ---------------------------------------------------------------- #
-frames = []
-
-for frame_number in range(1, 6):
-    frame = Image.open(f'00{frame_number}.png')
-    frames.append(frame)
-
-frames[0].save('homer.gif', save_all=True, append_images=frames[1:], optimize=True, duration=2000, loop=0)
+# frames = []
+#
+# for frame_number in range(1, 6):
+#     frame = Image.open(f'00{frame_number}.png')
+#     frames.append(frame)
+#
+# frames[0].save('homer.gif', save_all=True, append_images=frames[1:], optimize=True, duration=2000, loop=0)
