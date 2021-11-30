@@ -13,10 +13,10 @@ for num in range(1, 6):
         y.append(float(r[1]))
 
     f.close()
+    plt.title("00%d.dat" % num)
     plt.gca().set_aspect('equal', adjustable='box')
     plt.plot(x, y, ".C%d" % num, label="00%d.dat" % num)
     plt.grid()
-    plt.legend()
     plt.savefig("00%d.png" % num)
     plt.show()
 
