@@ -19,12 +19,7 @@ with open("01.dat") as file:
         axs[n, m].set_xlim([0, 16])
         axs[n, m].set_ylim([-12, 12])
         axs[n, m].grid()
-        axs[n, m].xaxis.set_major_locator(ticker.MultipleLocator(1))
-        axs[n, m].xaxis.set_minor_locator(ticker.MultipleLocator(0.5))
         axs[n, m].yaxis.set_major_locator(ticker.MultipleLocator(2))
-        axs[n, m].yaxis.set_minor_locator(ticker.MultipleLocator(1))
-        for label in (axs[n, m].get_xticklabels() + axs[n, m].get_yticklabels()):
-            label.set_fontsize(8)
         if n == 2:
             n = 0
             m += 1
@@ -53,10 +48,7 @@ with open("01.dat") as file:
         axs.set_xlim([0, 16])
         axs.set_ylim([-12, 12])
         axs.grid()
-        axs.xaxis.set_major_locator(ticker.MultipleLocator(1))
-        axs.xaxis.set_minor_locator(ticker.MultipleLocator(0.5))
         axs.yaxis.set_major_locator(ticker.MultipleLocator(2))
-        axs.yaxis.set_minor_locator(ticker.MultipleLocator(1))
 
         plt.savefig(f'GIF/res{num}.png')
         plt.close(fig)
