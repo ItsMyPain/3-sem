@@ -11,6 +11,5 @@ matrix[6, 0] = -lyambda
 matrix[8, 0] = -lyambda
 matrix[4, 1] = -mu
 matrix[5, 2] = -mu
-matrix = sym.Matrix(matrix)
 
 print(*matrix.eigenvals().items(), sep='\n')
