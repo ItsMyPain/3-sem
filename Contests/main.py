@@ -1,19 +1,23 @@
+import numpy as np
 import pandas as pd
 
-g_path = input()#'games001.csv'
-r_path = input()#'rates001.csv'
-
-games = pd.read_csv(g_path, sep=';')
-rates = pd.read_csv(r_path, sep=';')
-
-rates_mean = rates.groupby('id').mean()
-
-data = games.merge(rates_mean, left_on='id', right_index=True)
-res1 = data.sort_values(by='mark', ascending=False).head(3)[['name', 'mark']]
-
-for v in res1.values:
-    print(f'{v[0]} {v[1]:.3f}')
-
-res2 = data[data['mark'] > 8.0].loc[:, ['company', 'mark']].groupby('company').count() \
-    .sort_values(by='mark', ascending=False).head(1)
-print(res2.index[0], res2.iloc[0].values[0])
+try:
+    N = int(input())
+    data = pd.DataFrame(columns=['time', 'id', 'vit', 'ac', 'anti', 'neural', 'mch'])
+    for i in range(N):
+        data.loc[i] = [float(i) for i in input().split()]
+    data = data[['id', 'neural']]
+    count = data['id'].value_counts()
+    d1 = pd.merge(data, count, left_on='id', right_index=True)
+    d2 = d1[d1['id_y'] > 1]
+    d4 = d2.groupby('id').apply(lambda x: x.max() - x.min())
+    data4 = d4.sort_values(by='neural')
+    if data4.empty:
+        print(-1)
+    else:
+        a = []
+        for i in data4.head(3).index:
+            a.append(int(i))
+        print(*sorted(a))
+except:
+    print(-1)
